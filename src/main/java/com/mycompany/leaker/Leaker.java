@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Leak example.
+ * FrameConsumer leak example.
  *
  * @author Steven P. Goldsmith
  * @version 1.0.0
