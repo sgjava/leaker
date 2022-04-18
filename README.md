@@ -1,7 +1,7 @@
 Leaker demonstrates how Jaffree leaks FFMPEG memory using FrameConsumer. Modify
-main method of Leaker class to point to video stream. Also set loop to number of
-seconds to run. [Procpath](https://pypi.org/project/Procpath) can be used to
-track memory usage by pid.
+main method of RtspLeaker or FileLeaker class to point to video stream. Also set
+loop to number of seconds to run. [Procpath](https://pypi.org/project/Procpath)
+can be used to track memory usage by pid.
 
 * Run Leaker class.
 * `ps -ef | grep ffmpeg`

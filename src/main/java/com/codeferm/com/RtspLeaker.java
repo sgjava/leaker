@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Steven P. Goldsmith. All rights reserved.
  */
-package com.mycompany.leaker;
+package com.codeferm.com;
 
 import com.github.kokorin.jaffree.StreamType;
 import com.github.kokorin.jaffree.ffmpeg.FFmpeg;
@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 1.0.0
  */
 @Slf4j
-public class Leaker implements FrameConsumer {
+public class RtspLeaker implements FrameConsumer {
 
     /**
      * Future to run ffmpeg in background.
@@ -118,9 +118,18 @@ public class Leaker implements FrameConsumer {
         }
     }
 
+    /**
+     * args[0] = URL.
+     *
+     * @param args Main arguments.
+     */
     public static void main(String[] args) {
-        final var leaker = new Leaker();
-        leaker.open("/usr/bin/", "rtsp://192.168.1.8:554/ipcam_h264.sdp", 10000);
+        var url = "rtsp://192.168.1.8:554/ipcam_h264.sdp";
+        if (args.length > 0) {
+            url = args[0];
+        }
+        final var leaker = new RtspLeaker();
+        leaker.open("/usr/bin/", url, 10000);
         leaker.loop(660);
         leaker.close();
     }
